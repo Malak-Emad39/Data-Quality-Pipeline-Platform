@@ -1,0 +1,9 @@
+# Core Processing Engine
+pyspark>=3.5.0,<5.0.0
+
+# Extraction & Ingestion Dependencies
+psycopg2-binary>=2.9.9
+requests>=2.31.0
+
+# Testing & Quality
+pytest>=8.0.0
