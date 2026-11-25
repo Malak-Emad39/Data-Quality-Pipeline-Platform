@@ -79,7 +79,6 @@ def validate_payments(df: DataFrame, valid_orders_df: DataFrame) -> tuple[DataFr
         F.when(F.col("payment_id").isNotNull(), F.row_number().over(win)).otherwise(F.lit(1)),
     )
 
-    # فحص Referential Integrity: هل order_id موجود ضمن الطلبات السليمة في Silver؟
     valid_order_ids = valid_orders_df.select(F.col("order_id").alias("_valid_oid")).distinct()
     df_joined = df_ranked.join(
         valid_order_ids,
